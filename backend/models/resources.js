@@ -1,9 +1,10 @@
 import connection from "../config/db.js";
 import Sequelize from "sequelize";
 import Room from "./romms.js";
+import Reservation from "./reservations.js";
 
 const Resource = connection.define(
-    "resource",
+    "resources",
     {
         resources_id: {
             type: Sequelize.INTEGER,
@@ -35,11 +36,21 @@ export default Resource;
 
 //relación resources - rooms
 Resource.hasOne(Room, {
-    foreignKey: "rooms_id",
-    targetKey: "rooms_id", 
+    foreignKey: "room_id",
+    targetKey: "room_id", 
 });
 
 Room.hasOne(Resource, {
-    foreignKey: "rooms_id",
-    targetKey: "rooms_id", 
+    foreignKey: "room_id",
+    targetKey: "room_id", 
+});
+
+//relación resources - reservations
+Resource.hasOne(Reservation, {
+    foreignKey: "resources_id",
+    targetKey: "resources_id", 
+});
+Reservation.hasOne(Resource, {
+    foreignKey: "resources_id",
+    targetKey: "resources_id", 
 });

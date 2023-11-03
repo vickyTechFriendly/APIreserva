@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 
 const sequelize = new Sequelize("reservasDB", "root", "mis-reservas", {
-  host: "192.168.0.1", 
+  host: "192.168.16.1", 
   port: 3308,
   dialect: "mysql",
   define: {

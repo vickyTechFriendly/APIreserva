@@ -34,6 +34,7 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `reservasDB`.`room` (
   `room_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
   `capacity` INT UNSIGNED NULL DEFAULT NULL,
   `officer` VARCHAR(45) NULL DEFAULT NULL,
   `internalSchedule` VARCHAR(45) NULL DEFAULT NULL,

@@ -1,5 +1,6 @@
 import connection from "../config/db.js";
 import Sequelize from "sequelize";
+import Reservation from "./reservations.js";
 
 const Building = connection.define(
     "building",

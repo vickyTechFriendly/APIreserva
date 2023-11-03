@@ -16,6 +16,7 @@ services:
       - "./docker/insertBuildings.sql:/docker-entrypoint-initdb.d/3insertBuildings.sql"
       - "./docker/insertRooms.sql:/docker-entrypoint-initdb.d/4insertRooms.sql"
       - "./docker/insertResources.sql:/docker-entrypoint-initdb.d/5insertResources.sql"
+      - "./docker/insertReservations.sql:/docker-entrypoint-initdb.d/6insertReservations.sql"
     networks:
       - reservas
   node:

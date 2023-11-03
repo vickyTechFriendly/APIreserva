@@ -11,6 +11,10 @@ const Room = connection.define(
             autoIncrement: true,
             allowNull: false,
         },
+        name: {
+            type: Sequelize.STRING(45),
+            allowNull: true,
+        },
         capacity: {
             type: Sequelize.INTEGER,
             allowNull: true,
