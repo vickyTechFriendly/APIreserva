@@ -61,7 +61,6 @@ const getById = async (req, res) => {
     }
 };
 
-//create user
 const create = async (req, res) => {
     {
         try {
@@ -107,7 +106,6 @@ const create = async (req, res) => {
       };
     }
 
-//edit user
 const edit = async (req, res) => {
     try {
         const user = await User.findByPk(req.params.id);
@@ -135,7 +133,6 @@ const edit = async (req, res) => {
     }
 };
 
-//delete user
 const deleteUser = async (req, res) => {
     try {
         const user = await User.findByPk(req.params.id);
@@ -158,10 +155,37 @@ const deleteUser = async (req, res) => {
     }
 }
 
+const login = async (req, res) => {
+    const email = req.body.email;
+    let user = await User.findOne({ where: { email: email } });
+    if (!user) {
+      res.status(404).send("El usuario no existe");
+      return;
+    }
+    let password = req.body.password;
+    /*if (await bcrypt.compare(password, user.password))*/ 
+    if (password == user.password){
+      res.send("Usuario y contraseña correctos");
+    } else {
+      res.status(401).send("Contraseña incorrecta");
+    }
+  };
+  
+  const logout = (req, res) => {
+    req.logout((err) => {
+      if (err) {
+        console.log(err);
+      }
+      res.redirect("/");
+    });
+  };
+
 export default {
     getAll,
     getById,
     create,
     edit,
     deleteUser,
+    login,
+    logout,
 };
