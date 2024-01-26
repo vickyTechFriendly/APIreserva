@@ -25,7 +25,7 @@ const getAll = async (req, res) => {
 
 const getById = async (req, res) => {
     try {
-        const user_id = req.params.id;
+        const user_id = req.user.id;
         let users = await User.findByPk(user_id,{
             attributes: [
                 "user_id",

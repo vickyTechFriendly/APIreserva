@@ -4,11 +4,11 @@ import verified from "../middlewares/jwt.js";
 
 const router = Router();
 
-router.get("/", verified, (req, res) => {
+/* router.get("/", verified, (req, res) => {
     userController.getAll(req, res);
-});
+}); */
 
-router.get("/:id", (req, res) => {
+router.get("/", verified,(req, res) => {
     userController.getById(req, res);
 });
 
