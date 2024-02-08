@@ -50,6 +50,7 @@ const getById = async (req, res) => {
                     "endReservation",
                     "comment",
                     "room_id",
+                    "title",
                 ],
             }],
         });

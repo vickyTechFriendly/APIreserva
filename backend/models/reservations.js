@@ -48,6 +48,10 @@ const Reservation = connection.define(
             type: Sequelize.STRING(300),
             allowNull: true,
         },
+        title: {
+            type: Sequelize.STRING(45),
+            allowNull: true,
+        },
         },
         {freezeTableName: true, timestamps: false,}
 );

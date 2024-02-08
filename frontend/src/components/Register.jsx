@@ -8,7 +8,7 @@ const Register = () => {
   const [requestError, setRequestError] = useState("");
   const navigate = useNavigate();
 
-  const getData = async (email, password, role) => {
+  const getData = async (email, password, role, telephone, name, lastName, organization) => {
     try {
       const response = await Axios.post(
         "http://localhost:3000/api/users/register",
@@ -16,6 +16,10 @@ const Register = () => {
           email,
           password,
           role,
+          telephone,
+          name,
+          lastName,
+          organization
         }
       );
       setRequestError("");
@@ -41,6 +45,10 @@ const Register = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const role = e.target.role.value;
+    const telephone = e.target.telephone.value;
+    const name =  e.target.name.value;
+    const lastName = e.target.lastName.value;
+    const organization = e.target.organization.value;
     if (!confirmPassword(password)) {
       error = true;
       setErrorPassword(
@@ -52,7 +60,7 @@ const Register = () => {
       setErrorEmail("Por favor, introduce un correo electrónico válido");
     }
     if (error) return;
-    getData(email, password, role);
+    getData(email, password, role, telephone, name, lastName, organization);
   };
 
   const confirmPassword = (password) => {
@@ -84,6 +92,48 @@ const Register = () => {
                 className="loginInput"
               />
             </div>
+
+            <div>
+              <label htmlFor="telephone">Móvil </label>
+              <input
+                type="telephone"
+                name="telephone"
+                id="telephone"
+                className="loginInput"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="name">Nombre </label>
+              <input
+                type="name"
+                name="name"
+                id="name"
+                className="loginInput"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="lastName">Apellido </label>
+              <input
+                type="lastName"
+                name="lastName"
+                id="lastName"
+                className="loginInput"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="organization">Empresa </label>
+              <input
+                type="organization"
+                name="organization"
+                id="organization"
+                className="loginInput"
+              />
+            </div>
+
+
             <div>
               <label htmlFor="password">Contraseña {errorPassword}</label>
               <input
@@ -93,6 +143,7 @@ const Register = () => {
                 className="loginInput"
               />
             </div>
+
             <div>
             <input
             type="hidden"

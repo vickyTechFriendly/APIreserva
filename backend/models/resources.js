@@ -28,7 +28,15 @@ const Resource = connection.define(
             type: Sequelize.TINYINT,
             allowNull: true,
         },
+        quantity: {
+            type: Sequelize.INTEGER,
+            allowNull: true,
         },
+        room_id: {
+            type: Sequelize.INTEGER,
+            allowNull: false,
+        },
+    },
         {timestamps: false,freezeTableName: true}
 );
 

@@ -9,6 +9,7 @@ const getAll = async (req, res) => {
                 'loudspeaker',
                 'light',
                 'wifi',
+                'quantity',
             ],
         });
         res.send(resources);

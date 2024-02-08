@@ -65,7 +65,18 @@ function Perfil() {
                 Telefono: <span>{data.telephone}</span>
               </p>
             </div>
-  
+            <div className="reserva-container">
+              {data.reservations && data.reservations.map((reservation, index) => (
+                <div key={index}>
+                  <h3>Título: <span>{reservation.title}</span></h3>
+                  <p>Nº participantes: <span>{reservation.participants}</span></p>
+                  <p>Inicio Reserva: <span>{new Date(reservation.startReservation).toLocaleString()}</span></p>
+                  <p>Fin Reserva: <span>{new Date(reservation.endReservation).toLocaleString()}</span></p>
+                  <p>Descripción: <span>{reservation.comment}</span></p>
+                  <p>id Sala: <span>{reservation.room_id}</span></p>
+                  </div>
+                  ))}
+              </div>
             <div className="btns-container">
               {loged && (
                 <button className="logOut" onClick={logout}>
