@@ -1,7 +1,7 @@
 USE reservasDB;
 
-INSERT INTO resources (projector, loudspeaker, light, wifi, room_id, quantity)
+INSERT INTO resource (resource_id, name, type)
 VALUES 
-(1, 1, 1, 1, 1, NULL),
-(0, 1, 1, 0, 2, NULL),
-(1, 0, 1, 1, 3, NULL);
+(1, sillas, contable),
+(2, microfonos, contable),
+(3, luz, incontable);
